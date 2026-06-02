@@ -1,6 +1,8 @@
+import Benefits from "../../components/Benefits";
 import Hero from "../../components/Hero";
 import Newsletter from "../../components/Newsletter";
 import ProductCard from "../../components/ProductCard";
+import Testimonial from "../../components/Testimonial";
 
 import products from "../../data/products"
 
@@ -8,6 +10,8 @@ const Home = () => {
     return (
         <>
         <Hero />
+
+        <Benefits />
 
         <section className="max-w-7xl mx-auto py-16 px-4">
             <h2 className="text-4xl font-bold text-center mb-8">
@@ -21,6 +25,8 @@ const Home = () => {
                 ))}
             </div>
         </section>
+
+        <Testimonial />
 
         <Newsletter />
         </>

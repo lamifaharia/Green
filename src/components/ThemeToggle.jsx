@@ -11,7 +11,6 @@ const ThemeToggle = () => {
       className="btn btn-outline"
       onClick={() => setTheme(theme === "light" ? "forest" : "light")}
     >
-      {" "}
       Theme
     </button>
   );
