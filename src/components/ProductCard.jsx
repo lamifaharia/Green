@@ -1,15 +1,26 @@
-const ProductCard = ({ product }) => {
-    return (
-        <div className="card bg-base-100 shadow-xl">
-            <figure>
-                <img src={product.image} alt={product.name} className="h-60 w-full object-cover" />
-            </figure>
-            <div className="card-body">
-                <h2 className="card-title">{product.name}</h2>
-                <p>${product.proce}</p>
+import { useCart  } from "../context/CartContext";
+import { useWishlist } from "../context/WishlistContext";
+import { FaHeart } from "react-icons/fa";
 
-                <div className="card-actions justify-end">
-                    <button className="btn btn-success">Add To Cart</button>
+const ProductCard = ({ product }) => {
+    const { addToCart } = useCart();
+    const { toggleWishlist, useWishlist } = (useWishlist);
+
+    const liked = Wishlist.find((p) => p.id === product.id);
+
+    return(
+        <div className="card bg-base-100 shadow">
+            <figure>
+                <img src={product.image} className="h-52 w-full object-cover" />
+            </figure>
+
+            <div className="card-body">
+                <h2 className="font-bold">{product.name}</h2>
+                <p>${product.price}</p>
+
+                <div className="flex justufy-between items-center">
+                    <button onClick={() => addToCart(product)} className="btn btn-success btn-sm">Add</button>
+                    <button onClick={() => toggleWishlist(product)}><FaHeart color={liked ? "red" : "gray"}/></button>
                 </div>
             </div>
         </div>
