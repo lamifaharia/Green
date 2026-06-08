@@ -42,7 +42,7 @@ const products = [
     name: "Fresh Carrot",
     price: 4,
     image:
-      "https://images.unsplash.com/photo-1447175008436-170170753d52",
+      "https://images.unsplash.com/photo-1598170845058-32b9d6a5da37",
   },
 ];
 
