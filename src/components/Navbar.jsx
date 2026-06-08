@@ -1,57 +1,263 @@
-import { Link } from "react-router-dom";
-import { FaLeaf, FaShoppingCart, FaHeart } from "react-icons/fa";
-import ThemeToggle from "./ThemeToggle";
+import { NavLink } from "react-router-dom";
+
+import { FaLeaf, FaHeart, FaShoppingCart } from "react-icons/fa";
+
+
+
 import { useCart } from "../context/CartContext";
 
+import { useWishlist } from "../context/WishlistContext";
+
+
+
 const Navbar = () => {
-    const { cart } = useCart();
+
+  const { cart } = useCart();
+
+  const { wishlist } = useWishlist();
+
+
+
+  const links = (
+
+    <>
+
+      <li>
+
+        <NavLink to="/">Home</NavLink>
+
+      </li>
+
+
+
+      <li>
+
+        <NavLink to="/shop">Shop</NavLink>
+
+      </li>
+
+
+
+      <li>
+
+        <NavLink to="/about">About</NavLink>
+
+      </li>
+
+
+
+      <li>
+
+        <NavLink to="/contact">Contact</NavLink>
+
+      </li>
+
+    </>
+
+  );
+
+
+
   return (
-    <div className="navbar bg-base-100 shadow-lg px-6">
+
+    <div className="navbar bg-base-100 shadow-md sticky top-0 z-50 px-4">
+
+
+
+      {/* Mobile Menu */}
+
       <div className="navbar-start">
-        <Link
+
+
+
+        <div className="dropdown">
+
+          <label
+
+            tabIndex={0}
+
+            className="btn btn-ghost lg:hidden"
+
+          >
+
+            <svg
+
+              xmlns="http://www.w3.org/2000/svg"
+
+              className="h-5 w-5"
+
+              fill="none"
+
+              viewBox="0 0 24 24"
+
+              stroke="currentColor"
+
+            >
+
+              <path
+
+                strokeLinecap="round"
+
+                strokeLinejoin="round"
+
+                strokeWidth="2"
+
+                d="M4 6h16M4 12h8m-8 6h16"
+
+              />
+
+            </svg>
+
+          </label>
+
+
+
+          <ul
+
+            tabIndex={0}
+
+            className="menu menu-sm dropdown-content mt-3 z-[1] p-2 shadow bg-base-100 rounded-box w-52"
+
+          >
+
+            {links}
+
+          </ul>
+
+        </div>
+
+
+
+        <NavLink
+
           to="/"
-          className="text-2xl font-bold text-green-600 flex items-center gap-2"
+
+          className="btn btn-ghost text-2xl font-bold text-success"
+
         >
-          <FaLeaf /> Green
-        </Link>
+
+          <FaLeaf />
+
+          Green
+
+        </NavLink>
+
+
+
       </div>
+
+
+
+      {/* Desktop Menu */}
 
       <div className="navbar-center hidden lg:flex">
-        <ul className="menu menu-horizontal px-1 gap-2">
-          <li>
-            <Link to="/">Home</Link>
-          </li>
-          <li>
-            <Link to="/">Shop</Link>
-          </li>
-          <li>
-            <Link to="/">About</Link>
-          </li>
-          <li>
-            <Link to="/">Contact</Link>
-          </li>
+
+        <ul className="menu menu-horizontal px-1">
+
+          {links}
+
         </ul>
+
       </div>
 
-      <div className="navbar-end gap-4">
 
-        <ThemeToggle />
-        <Link to="/wishlist">
-          <FaHeart size={20} />
-        </Link>
 
-        
+      {/* Right Side */}
 
-        <Link to="/cart">
-           <FaShoppingCart size= {20} />
-        </Link>
+      <div className="navbar-end gap-3">
 
-        <Link to ="/login" className ="btn btn-success">
-        Login 
-        </Link>
+
+
+        {/* Wishlist */}
+
+        <NavLink
+
+          to="/wishlist"
+
+          className="btn btn-ghost btn-circle"
+
+        >
+
+          <div className="indicator">
+
+            <FaHeart size={20} />
+
+
+
+            {wishlist.length > 0 && (
+
+              <span className="badge badge-success badge-sm indicator-item">
+
+                {wishlist.length}
+
+              </span>
+
+            )}
+
+          </div>
+
+        </NavLink>
+
+
+
+        {/* Cart */}
+
+        <NavLink
+
+          to="/cart"
+
+          className="btn btn-ghost btn-circle"
+
+        >
+
+          <div className="indicator">
+
+            <FaShoppingCart size={20} />
+
+
+
+            {cart.length > 0 && (
+
+              <span className="badge badge-success badge-sm indicator-item">
+
+                {cart.length}
+
+              </span>
+
+            )}
+
+          </div>
+
+        </NavLink>
+
+
+
+        {/* Login Button */}
+
+        <NavLink
+
+          to="/login"
+
+          className="btn btn-success"
+
+        >
+
+          Login
+
+        </NavLink>
+
+
+
       </div>
+
+
+
     </div>
+
   );
+
 };
+
+
 
 export default Navbar;
