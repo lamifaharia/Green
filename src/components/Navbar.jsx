@@ -1,8 +1,10 @@
 import { Link } from "react-router-dom";
 import { FaLeaf, FaShoppingCart, FaHeart } from "react-icons/fa";
 import ThemeToggle from "./ThemeToggle";
+import { useCart } from "../context/CartContext";
 
 const Navbar = () => {
+    const { cart } = useCart();
   return (
     <div className="navbar bg-base-100 shadow-lg px-6">
       <div className="navbar-start">
@@ -37,6 +39,8 @@ const Navbar = () => {
         <Link to="/wishlist">
           <FaHeart size={20} />
         </Link>
+
+        
 
         <Link to="/cart">
            <FaShoppingCart size= {20} />

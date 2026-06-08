@@ -1,42 +1,26 @@
 import { createContext, useContext, useState } from "react";
+import toast from "react-hot-toast";
 
 const CartContext = createContext();
 
-export const useCart = () => useContext(CartContext);
+export const useCart = () => {
+  return useContext(CartContext);
+};
 
 const CartProvider = ({ children }) => {
   const [cart, setCart] = useState([]);
 
   const addToCart = (product) => {
-    setCart((prev) => {
-      const exist = prev.find((p) => p.id === product.id);
+    setCart((prev) => [...prev, product]);
 
-      if (exist) {
-        return prev.map((p) =>
-          p.id === product.id
-            ? { ...p, qty: p.qty + 1 }
-            : p
-        );
-      }
-
-      return [...prev, { ...product, qty: 1 }];
-    });
+    toast.success(`${product.name} added to cart`);
   };
 
   const removeFromCart = (id) => {
-    setCart((prev) =>
-      prev.filter((p) => p.id !== id)
-    );
-  };
+    setCart(cart.filter((item) => item.id !== id));
 
-  const clearCart = () => {
-    setCart([]);
+    toast.error("Item removed");
   };
-
-  const total = cart.reduce(
-    (sum, item) => sum + item.price * item.qty,
-    0
-  );
 
   return (
     <CartContext.Provider
@@ -44,8 +28,6 @@ const CartProvider = ({ children }) => {
         cart,
         addToCart,
         removeFromCart,
-        clearCart,
-        total,
       }}
     >
       {children}

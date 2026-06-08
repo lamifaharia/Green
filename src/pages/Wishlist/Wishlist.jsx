@@ -1,13 +1,26 @@
-const Wishlist = () => {
-    return (
-        <section className="max-w-5xl mx-auto py-20 px-4">
-            <h1 className="text-5xl font-bold mb-10">
-                Wishlist
-            </h1>
+import { useWishlist } from "../../context/WishlistContext";
 
-            <div className="text-center text-lg"> No wishlist items yet.</div>
-        </section>
-    );
+const Wishlist = () => {
+  const { wishlist } =
+    useWishlist();
+
+  return (
+    <div className="max-w-6xl mx-auto p-10">
+
+      <h1 className="text-4xl font-bold mb-8">
+        Wishlist
+      </h1>
+
+      {wishlist.map((item) => (
+        <div
+          key={item.id}
+          className="border p-4 rounded-lg mb-4"
+        >
+          {item.name}
+        </div>
+      ))}
+    </div>
+  );
 };
 
 export default Wishlist;
