@@ -1,50 +1,29 @@
-import { useCart } from "../context/CartContext";
-import { useWishlist } from "../context/WishlistContext";
-import { FaHeart } from "react-icons/fa";
+import { FaCartPlus } from "react-icons/fa";
 
 const ProductCard = ({ product }) => {
-  const { addToCart } = useCart();
-  const { wishlist, toggleWishlist } = useWishlist();
-
-  const liked = wishlist.find(
-    (p) => p.id === product.id
-  );
-
   return (
-    <div className="card bg-base-100 shadow">
+    <div className="card bg-base-100 shadow-xl">
       <figure>
         <img
           src={product.image}
           alt={product.name}
-          className="h-52 w-full object-cover"
+          className="h-56 w-full object-cover"
         />
       </figure>
 
       <div className="card-body">
-        <h2 className="font-bold">
+        <h2 className="card-title">
           {product.name}
         </h2>
 
-        <p>${product.price}</p>
+        <p className="text-success font-bold">
+          ${product.price}
+        </p>
 
-        <div className="flex justify-between items-center">
-          <button
-            onClick={() => addToCart(product)}
-            className="btn btn-success btn-sm"
-          >
-            Add
-          </button>
-
-          <button
-            onClick={() =>
-              toggleWishlist(product)
-            }
-          >
-            <FaHeart
-              color={liked ? "red" : "gray"}
-            />
-          </button>
-        </div>
+        <button className="btn btn-success">
+          <FaCartPlus />
+          Add To Cart
+        </button>
       </div>
     </div>
   );

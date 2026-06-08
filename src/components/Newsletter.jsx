@@ -1,18 +1,31 @@
 const Newsletter = () => {
-    return (
-        <section className="py-16 bg-green-600 text-white">
-            <div className="max-w-xl mx-auto text-center">
-                <h2 className="text-4xl font-bold mb-4">Subscribe</h2>
-                <p className="mb-6">Get updates about organic products.</p>
+  return (
+    <section className="py-20">
+      <div className="max-w-3xl mx-auto text-center">
 
-                <div className="join">
-                    <input type="email" placeholder="email@gmail.com" className="input join-item" />
+        <h2 className="text-4xl font-bold mb-4">
+          Join Our Newsletter
+        </h2>
 
-                    <button className="btn btn-neutral join-item">Subscribe</button>
-                </div>
-            </div>
-        </section>
-    );
+        <p className="mb-6">
+          Get updates about new products and offers.
+        </p>
+
+        <div className="flex gap-2 justify-center">
+          <input
+            type="email"
+            placeholder="Email Address"
+            className="input input-bordered"
+          />
+
+          <button className="btn btn-success">
+            Subscribe
+          </button>
+        </div>
+
+      </div>
+    </section>
+  );
 };
 
 export default Newsletter;
