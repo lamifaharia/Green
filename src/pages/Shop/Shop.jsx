@@ -16,7 +16,7 @@ const Shop = () => {
     .includes(search.toLowerCase())
     );
 
-    //catefgory
+    //category
     if (category != "All") {
         filteredProducts = filteredProducts.filter(
             (product) => product.category === category
