@@ -1,5 +1,5 @@
 import { FaCartPlus, FaHeart } from "react-icons/fa";
-
+import { Link } from "react-router-dom";
 import { useCart } from "../context/CartContext";
 import { useWishlist } from "../context/WishlistContext";
 
@@ -50,6 +50,8 @@ const ProductCard = ({ product }) => {
           >
             <FaHeart />
           </button>
+
+          <Link to={`/product/${product.id}`} className="btn btn-primary flex-1">Details</Link>
 
         </div>
 

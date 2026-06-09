@@ -8,6 +8,7 @@ import Login from "../pages/Login/Login";
 import Register from "../pages/Register/Register";
 import About from "../pages/About/About"
 import Contact from "../pages/Contact/Contact"
+import ProductDetails from "../pages/ProductDetails.jsx/ProductDetails";
 
 export const router = createBrowserRouter([
     {
@@ -46,6 +47,10 @@ export const router = createBrowserRouter([
                 path: "contact",
                 element: <Contact />
             },
+            {
+                path: "producct/:id",
+                element: <ProductDetails/>
+            }
         ],
     },
 ]);
