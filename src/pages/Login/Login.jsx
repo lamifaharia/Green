@@ -1,46 +1,143 @@
 import { useState } from "react";
-import { useNavigate, Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
+import toast from "react-hot-toast";
 import { useAuth } from "../../context/AuthContext";
 
 const Login = () => {
-    const navigate = useNavigate();
+  const navigate = useNavigate();
 
-    const { loginUser, googleLogin } = useAuth();
+  const { loginUser } = useAuth();
 
-    const [email, setEmail] = useState("");
-    const [password, setPassword] = useState("");
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
 
-    const handleLogin = async (e) => {
-        e.preventDefault();
+  const [error, setError] = useState("");
 
-        await loginUser( email, password );
+  const handleSubmit = async (e) => {
+    e.preventDefault();
 
-        navigate ("/");
-    };
+    try {
+      setError("");
 
-    const handleGoogle = async () => {
-        await googleLogin();
-        navigate("/");
-    };
+      await loginUser(email, password);
 
-    return (
-        <div className="hero min-h-screen">
-            <div className="card w-full max-w-md bg-base-100 shadow-xl">
-                <form onSubmit={handleLogin} className="card-body">
-                    <h1 className="text-3xl font-bold text-center">Login</h1>
-                    <input type="email" placeholder="email@gmail.com" className="input input-bordered" onChange={(e) => setEmail(e.target.value)} />
-                    <input type="password" placeholder="Password" className="input input-bordered" onChange={(e) => setPassword(e.target.value)} />
-                    <button className="btn btn-success">Login</button>
+      toast.success("Login successful!");
 
-                    <button type="button" onClick={handleGoogle} className="btn btn-outline"></button>
-                    <p className="text-center"> No account? 
-                        <Link className="text-success ml-2" to="/Register">
-                        Register</Link>
-                    </p>
-                </form>
-            </div>
+      navigate("/");
+    } catch (err) {
+      setError("Invalid email or password");
+      toast.error("Login failed");
+    }
+  };
+
+  return (
+    <div className="min-h-screen bg-base-200 flex items-center justify-center px-4">
+      <div className="w-full max-w-5xl bg-base-100 rounded-3xl shadow-2xl overflow-hidden grid md:grid-cols-2">
+
+        {/* Left Side */}
+        <div className="hidden md:flex flex-col justify-center bg-success text-white p-12">
+          <h1 className="text-5xl font-bold mb-4">
+            Welcome Back 🌿
+          </h1>
+
+          <p className="text-lg opacity-90">
+            Sign in to continue shopping fresh and organic products.
+          </p>
+
+          <div className="mt-10">
+            <img
+              src="https://cdn-icons-png.flaticon.com/512/3081/3081559.png"
+              alt="Organic"
+              className="w-48"
+            />
+          </div>
         </div>
-    );
+
+        {/* Right Side */}
+        <div className="p-8 md:p-12">
+          <div className="max-w-md mx-auto">
+
+            <h2 className="text-4xl font-bold text-center mb-2">
+              Login
+            </h2>
+
+            <p className="text-center text-gray-500 mb-8">
+              Welcome back to Green Store
+            </p>
+
+            <form onSubmit={handleSubmit}>
+
+              <div className="form-control mb-4">
+                <label className="label">
+                  <span className="label-text font-medium">
+                    Email Address
+                  </span>
+                </label>
+
+                <input
+                  type="email"
+                  placeholder="example@gmail.com"
+                  className="input input-bordered w-full"
+                  value={email}
+                  onChange={(e) => setEmail(e.target.value)}
+                  required
+                />
+              </div>
+
+              <div className="form-control mb-6">
+                <label className="label">
+                  <span className="label-text font-medium">
+                    Password
+                  </span>
+                </label>
+
+                <input
+                  type="password"
+                  placeholder="••••••••"
+                  className="input input-bordered w-full"
+                  value={password}
+                  onChange={(e) => setPassword(e.target.value)}
+                  required
+                />
+              </div>
+
+              {error && (
+                <div className="alert alert-error mb-4">
+                  <span>{error}</span>
+                </div>
+              )}
+
+              <button
+                type="submit"
+                className="btn btn-success w-full"
+              >
+                Login
+              </button>
+
+            </form>
+
+            <div className="divider my-6">OR</div>
+
+            <button className="btn btn-outline w-full">
+              Continue with Google
+            </button>
+
+            <p className="text-center mt-6">
+              Don't have an account?{" "}
+              <Link
+                to="/register"
+                className="text-success font-semibold hover:underline"
+              >
+                Register
+              </Link>
+            </p>
+
+          </div>
+        </div>
+
+      </div>
+    </div>
+  );
 };
 
 export default Login;
