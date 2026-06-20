@@ -11,7 +11,7 @@ const Cart = () => {
     totalItems,
   } = useCart();
 
-  if (cart.length === 0) {
+  if (!cart || cart.length === 0) {
     return (
       <div className="max-w-4xl mx-auto py-20 text-center">
         <h1 className="text-4xl font-bold mb-4">
@@ -22,7 +22,10 @@ const Cart = () => {
           Add some organic products to get started.
         </p>
 
-        <Link to="/shop" className="btn btn-success">
+        <Link
+          to="/shop"
+          className="btn btn-success"
+        >
           Continue Shopping
         </Link>
       </div>
@@ -36,7 +39,7 @@ const Cart = () => {
       </h1>
 
       <div className="grid lg:grid-cols-3 gap-8">
-        
+
         {/* Cart Items */}
         <div className="lg:col-span-2 space-y-4">
 
@@ -47,7 +50,7 @@ const Cart = () => {
             >
               <div className="card-body">
 
-                <div className="flex flex-col md:flex-row justify-between gap-4">
+                <div className="flex flex-col md:flex-row justify-between items-center gap-4">
 
                   <div>
                     <h2 className="text-xl font-bold">
@@ -60,12 +63,11 @@ const Cart = () => {
                   </div>
 
                   <div className="flex items-center gap-3">
-
                     <button
+                      className="btn btn-sm"
                       onClick={() =>
                         decreaseQuantity(item.id)
                       }
-                      className="btn btn-sm"
                     >
                       -
                     </button>
@@ -75,14 +77,13 @@ const Cart = () => {
                     </span>
 
                     <button
+                      className="btn btn-sm"
                       onClick={() =>
                         increaseQuantity(item.id)
                       }
-                      className="btn btn-sm"
                     >
                       +
                     </button>
-
                   </div>
 
                   <div className="text-right">
@@ -92,10 +93,10 @@ const Cart = () => {
                     </p>
 
                     <button
+                      className="btn btn-error btn-sm mt-2"
                       onClick={() =>
                         removeFromCart(item.id)
                       }
-                      className="btn btn-error btn-sm mt-2"
                     >
                       Remove
                     </button>
@@ -111,7 +112,6 @@ const Cart = () => {
 
         {/* Order Summary */}
         <div>
-
           <div className="card bg-base-100 shadow-xl sticky top-24">
             <div className="card-body">
 
@@ -136,9 +136,12 @@ const Cart = () => {
                 <span>${totalPrice.toFixed(2)}</span>
               </div>
 
-              <button className="btn btn-success mt-4">
+              <Link
+                to="/checkout"
+                className="btn btn-success mt-4"
+              >
                 Proceed To Checkout
-              </button>
+              </Link>
 
               <Link
                 to="/shop"
@@ -149,7 +152,6 @@ const Cart = () => {
 
             </div>
           </div>
-
         </div>
 
       </div>
