@@ -10,6 +10,7 @@ import About from "../pages/About/About";
 import Contact from "../pages/Contact/Contact";
 import ProductDetails from "../pages/ProductDetails.jsx/ProductDetails";
 import Checkout from "../pages/Checkout/Checkout";
+import OrderSuccess from "../pages/OrderSuccess/OrderSuccess";
 
 export const router = createBrowserRouter([
   {
@@ -59,6 +60,10 @@ export const router = createBrowserRouter([
       {
         path: "/checkout",
         element: <Checkout />,
+      },
+      {
+        path: "/order-success",
+        element: <OrderSuccess />,
       },
     ],
   },
