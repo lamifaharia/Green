@@ -50,10 +50,6 @@ export const router = createBrowserRouter([
         element: <Contact />,
       },
       {
-        path: "producct/:id",
-        element: <ProductDetails />,
-      },
-      {
         path: "/product/:id",
         element: <ProductDetails />,
       },
