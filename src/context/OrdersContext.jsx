@@ -1,4 +1,9 @@
-import { createContext, useContext, useState, useEffect } from "react";
+import {
+  createContext,
+  useContext,
+  useState,
+  useEffect,
+} from "react";
 
 const OrdersContext = createContext();
 
@@ -8,17 +13,19 @@ export const useOrders = () => {
 
 const OrdersProvider = ({ children }) => {
   const [orders, setOrders] = useState(() => {
-    const savedOrders = localStorage.getItem("orders");
+    const savedOrders =
+      localStorage.getItem("orders");
 
-    ```
-return savedOrders
-  ? JSON.parse(savedOrders)
-  : [];
-```;
+    return savedOrders
+      ? JSON.parse(savedOrders)
+      : [];
   });
 
   useEffect(() => {
-    localStorage.setItem("orders", JSON.stringify(orders));
+    localStorage.setItem(
+      "orders",
+      JSON.stringify(orders)
+    );
   }, [orders]);
 
   const addOrder = (order) => {
@@ -26,6 +33,7 @@ return savedOrders
       ...prev,
       {
         id: Date.now(),
+        date: new Date().toLocaleString(),
         ...order,
       },
     ]);
