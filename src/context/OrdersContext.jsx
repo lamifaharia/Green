@@ -3,7 +3,6 @@ import {
   useContext,
   useState,
   useEffect,
-  useOrders,
 } from "react";
 
 const OrdersContext = createContext();
@@ -52,4 +51,5 @@ const OrdersProvider = ({ children }) => {
   );
 };
 
+export default OrdersProvider;
 export default OrdersProvider;
