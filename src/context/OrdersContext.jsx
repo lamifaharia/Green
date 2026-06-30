@@ -13,19 +13,17 @@ export const useOrders = () => {
 
 const OrdersProvider = ({ children }) => {
   const [orders, setOrders] = useState(() => {
-    const savedOrders =
-      localStorage.getItem("orders");
-
-    return savedOrders
-      ? JSON.parse(savedOrders)
-      : [];
+    try {
+      const savedOrders = localStorage.getItem("orders");
+      return savedOrders ? JSON.parse(savedOrders) : [];
+    } catch (error) {
+      console.error("Failed to parse orders from localStorage", error);
+      return [];
+    }
   });
 
   useEffect(() => {
-    localStorage.setItem(
-      "orders",
-      JSON.stringify(orders)
-    );
+    localStorage.setItem("orders", JSON.stringify(orders));
   }, [orders]);
 
   const addOrder = (order) => {
@@ -51,5 +49,5 @@ const OrdersProvider = ({ children }) => {
   );
 };
 
-export default OrdersProvider;
+// Removed the duplicate export default
 export default OrdersProvider;
