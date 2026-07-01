@@ -48,6 +48,4 @@ const OrdersProvider = ({ children }) => {
     </OrdersContext.Provider>
   );
 };
-
-// Removed the duplicate export default
 export default OrdersProvider;
