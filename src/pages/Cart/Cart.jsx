@@ -115,10 +115,7 @@ const Cart = () => {
                 Continue Shopping
               </Link>
 
-
-              <Link to="/shop" className="btn btn-outline">
-                Continue Shopping
-              </Link>
+              
             </div>
           </div>
         </div>
