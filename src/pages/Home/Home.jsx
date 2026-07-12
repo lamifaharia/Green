@@ -3,6 +3,7 @@ import CategoryCard from "../../components/CategoryCard";
 import ProductCard from "../../components/ProductCard";
 import Benefits from "../../components/Benefits";
 import Newsletter from "../../components/Newsletter";
+import Reveal from "../../components/Reveal";
 import products from "../../data/products";
 
 const categories = [
@@ -23,46 +24,59 @@ const categories = [
   },
 ];
 
-
-
 const Home = () => {
   return (
     <>
-      <Hero />
+      {/* Hero Section */}
+      <Reveal>
+        <Hero />
+      </Reveal>
 
-      <section className="py-20 max-w-screen-2xl mx-auto px-4">
-        <h2 className="text-4xl font-bold mb-10 text-center">
-          Categories
-        </h2>
+      {/* Categories */}
+      <Reveal delay={0.2}>
+        <section className="py-20 max-w-screen-2xl mx-auto px-4">
+          <h2 className="text-4xl font-bold mb-10 text-center">
+            Categories
+          </h2>
 
-        <div className="grid md:grid-cols-3 gap-8">
-          {categories.map((category, index) => (
-            <CategoryCard
-              key={index}
-              {...category}
-            />
-          ))}
-        </div>
-      </section>
+          <div className="grid md:grid-cols-3 gap-8">
+            {categories.map((category, index) => (
+              <CategoryCard
+                key={index}
+                {...category}
+              />
+            ))}
+          </div>
+        </section>
+      </Reveal>
 
-      <section className="py-20 max-w-screen-2xl mx-auto px-4">
-        <h2 className="text-4xl font-bold mb-10 text-center">
-          Featured Products
-        </h2>
+      {/* Featured Products */}
+      <Reveal delay={0.3}>
+        <section className="py-20 max-w-screen-2xl mx-auto px-4">
+          <h2 className="text-4xl font-bold mb-10 text-center">
+            Featured Products
+          </h2>
 
-        <div className="grid md:grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
-          {products.map((product) => (
-            <ProductCard
-              key={product.id}
-              product={product}
-            />
-          ))}
-        </div>
-      </section>
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+            {products.map((product) => (
+              <ProductCard
+                key={product.id}
+                product={product}
+              />
+            ))}
+          </div>
+        </section>
+      </Reveal>
 
-      <Benefits />
+      {/* Benefits */}
+      <Reveal delay={0.4}>
+        <Benefits />
+      </Reveal>
 
-      <Newsletter />
+      {/* Newsletter */}
+      <Reveal delay={0.5}>
+        <Newsletter />
+      </Reveal>
     </>
   );
 };

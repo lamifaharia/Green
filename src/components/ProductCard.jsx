@@ -1,3 +1,4 @@
+import { motion } from "framer-motion";
 import { FaCartPlus, FaHeart } from "react-icons/fa";
 import { Link } from "react-router-dom";
 
@@ -9,61 +10,89 @@ const ProductCard = ({ product }) => {
   const { addToWishlist } = useWishlist();
 
   return (
-    <div className="card bg-base-100 shadow-lg hover:shadow-2xl transition-all duration-300">
-      
-      {/* Product Image */}
-      <figure className="overflow-hidden">
-        <Link to={`/product/${product.id}`}>
-          <img
-            src={product.image}
-            alt={product.name}
-            className="h-56 w-full object-cover hover:scale-105 transition-transform duration-300"
-          />
-        </Link>
-      </figure>
+    <motion.div
+      whileHover={{
+        y: -6,
+      }}
+      transition={{
+        duration: 0.25,
+      }}
+      className="group bg-white border border-gray-200 rounded-lg overflow-hidden hover:shadow-2xl transition-all duration-300"
+    >
+      {/* Image */}
 
-      {/* Product Info */}
-      <div className="card-body">
+      <div className="relative overflow-hidden bg-gray-100">
 
-        <Link to={`/product/${product.id}`}>
-          <h2 className="card-title hover:text-success transition-colors">
-            {product.name}
-          </h2>
-        </Link>
+        <motion.img
+          whileHover={{
+            scale: 1.08,
+          }}
+          transition={{
+            duration: 0.4,
+          }}
+          src={product.image}
+          alt={product.name}
+          className="w-full h-72 object-cover"
+        />
 
-        <p className="text-success font-bold text-lg">
-          ${product.price}
+        <button
+          onClick={() => addToWishlist(product)}
+          className="absolute top-4 right-4 w-10 h-10 bg-white rounded-md shadow-md flex items-center justify-center text-[#003300] hover:bg-[#003300] hover:text-white transition-all"
+        >
+          <FaHeart />
+        </button>
+
+      </div>
+
+      {/* Content */}
+
+      <div className="p-5">
+
+        <span className="inline-flex px-3 py-1 text-xs font-semibold uppercase tracking-wider bg-[#EEF7EE] text-[#003300] rounded-md">
+          {product.category}
+        </span>
+
+        <h2 className="mt-4 text-2xl font-bold text-gray-900 line-clamp-1">
+          {product.name}
+        </h2>
+
+        <p className="mt-2 text-gray-500 text-sm leading-6 h-12 overflow-hidden">
+          {product.description}
         </p>
 
-        {/* Actions */}
-        <div className="flex gap-2 mt-2">
+        <div className="flex items-center justify-between mt-6">
 
-          <button
-            onClick={() => addToCart(product)}
-            className="btn btn-success flex-1"
-          >
-            <FaCartPlus />
-            Add Cart
-          </button>
+          <span className="text-3xl font-bold text-[#003300]">
+            ${product.price}
+          </span>
 
-          <button
-            onClick={() => addToWishlist(product)}
-            className="btn btn-outline btn-success"
-          >
-            <FaHeart />
-          </button>
+          <span className="text-xs text-gray-400 uppercase tracking-widest">
+            Organic
+          </span>
 
         </div>
 
-        <Link
-          to={`/product/${product.id}`}
-          className="btn btn-primary w-full mt-3"
-        >
-          View Details
-        </Link>
+        <div className="mt-6 flex gap-3">
+
+          <button
+            onClick={() => addToCart(product)}
+            className="flex-1 h-11 bg-[#003300] hover:bg-[#145214] text-white rounded-md font-semibold flex items-center justify-center gap-2 transition-all"
+          >
+            <FaCartPlus />
+            Add
+          </button>
+
+          <Link
+            to={`/product/${product.id}`}
+            className="h-11 px-5 border border-[#003300] rounded-md text-[#003300] hover:bg-[#003300] hover:text-white font-semibold flex items-center justify-center transition-all"
+          >
+            Details
+          </Link>
+
+        </div>
 
       </div>
-    </div>
+    </motion.div>
   );
 };
 
