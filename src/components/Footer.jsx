@@ -1,4 +1,8 @@
-import { Facebook, Instagram, Twitter } from "lucide-react";
+import {
+  FaFacebookF,
+  FaInstagram,
+  FaTwitter,
+} from "react-icons/fa";
 
 const Footer = () => {
   return (
@@ -16,15 +20,15 @@ const Footer = () => {
         <div className="flex justify-center gap-4 mb-6">
 
           <button className="btn btn-circle btn-sm">
-            <Facebook size={18} />
+            <FaFacebookF size={18} />
           </button>
 
           <button className="btn btn-circle btn-sm">
-            <Instagram size={18} />
+            <FaInstagram size={18} />
           </button>
 
           <button className="btn btn-circle btn-sm">
-            <Twitter size={18} />
+            <FaTwitter size={18} />
           </button>
 
         </div>
@@ -32,7 +36,7 @@ const Footer = () => {
         <div className="divider"></div>
 
         <p className="text-sm text-base-content/60">
-          Copyright © 2026 Green Organic Store. All rights reserved.
+          © 2026 Green Organic Store. All Rights Reserved.
         </p>
 
       </div>
