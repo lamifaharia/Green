@@ -3,39 +3,38 @@ import {
   FaInstagram,
   FaTwitter,
   FaLeaf,
+  FaMapMarkerAlt,
+  FaPhoneAlt,
+  FaEnvelope,
 } from "react-icons/fa";
 import { Link } from "react-router-dom";
 
 const Footer = () => {
   return (
-    <footer className="mt-28 border-t border-gray-200 bg-white">
+    <footer className="mt-24 bg-[#0B1F16] text-white">
 
       <div className="max-w-7xl mx-auto px-6 py-16">
 
-        <div className="grid lg:grid-cols-3 gap-12 items-start">
+        <div className="grid lg:grid-cols-4 md:grid-cols-2 gap-12">
 
           {/* Logo */}
-
           <div>
 
-            <div className="flex items-center gap-3">
+            <div className="flex items-center gap-3 mb-5">
 
-              <div className="w-14 h-14 rounded-xl bg-[#003300] flex items-center justify-center">
+              <div className="w-14 h-14 rounded-2xl bg-gradient-to-br from-green-500 to-green-700 flex items-center justify-center shadow-lg">
 
-                <FaLeaf
-                  className="text-white"
-                  size={24}
-                />
+                <FaLeaf className="text-white text-2xl" />
 
               </div>
 
               <div>
 
-                <h2 className="text-3xl font-black text-[#003300]">
+                <h2 className="text-3xl font-black tracking-wide">
                   Green
                 </h2>
 
-                <p className="text-gray-500 text-sm">
+                <p className="text-green-300 text-sm">
                   Organic Store
                 </p>
 
@@ -43,23 +42,27 @@ const Footer = () => {
 
             </div>
 
-            <p className="mt-6 max-w-sm text-gray-500 leading-7">
+            <p className="text-gray-300 leading-7">
               Fresh organic fruits, vegetables and healthy groceries
-              delivered from trusted local farms.
+              delivered directly from trusted farms to your doorstep.
             </p>
 
           </div>
 
-          {/* Navigation */}
+          {/* Quick Links */}
 
-          <div className="flex justify-center">
+          <div>
 
-            <ul className="space-y-4 text-center">
+            <h3 className="text-xl font-bold mb-6">
+              Quick Links
+            </h3>
+
+            <ul className="space-y-4 text-gray-300">
 
               <li>
                 <Link
                   to="/"
-                  className="text-gray-600 hover:text-[#003300] transition"
+                  className="hover:text-green-400 transition duration-300"
                 >
                   Home
                 </Link>
@@ -68,7 +71,7 @@ const Footer = () => {
               <li>
                 <Link
                   to="/shop"
-                  className="text-gray-600 hover:text-[#003300] transition"
+                  className="hover:text-green-400 transition duration-300"
                 >
                   Shop
                 </Link>
@@ -76,19 +79,19 @@ const Footer = () => {
 
               <li>
                 <Link
-                  to="/about"
-                  className="text-gray-600 hover:text-[#003300] transition"
+                  to="/wishlist"
+                  className="hover:text-green-400 transition duration-300"
                 >
-                  About
+                  Wishlist
                 </Link>
               </li>
 
               <li>
                 <Link
-                  to="/contact"
-                  className="text-gray-600 hover:text-[#003300] transition"
+                  to="/cart"
+                  className="hover:text-green-400 transition duration-300"
                 >
-                  Contact
+                  Cart
                 </Link>
               </li>
 
@@ -96,44 +99,105 @@ const Footer = () => {
 
           </div>
 
-          {/* Social */}
+          {/* Company */}
 
-          <div className="flex lg:justify-end">
+          <div>
 
-            <div>
+            <h3 className="text-xl font-bold mb-6">
+              Company
+            </h3>
 
-              <h3 className="font-semibold text-lg mb-5">
-                Follow Us
-              </h3>
+            <ul className="space-y-4 text-gray-300">
 
-              <div className="flex gap-4">
+              <li>
+                <Link
+                  to="/about"
+                  className="hover:text-green-400 transition duration-300"
+                >
+                  About Us
+                </Link>
+              </li>
 
+              <li>
+                <Link
+                  to="/contact"
+                  className="hover:text-green-400 transition duration-300"
+                >
+                  Contact
+                </Link>
+              </li>
+
+              <li>
                 <a
                   href="#"
-                  className="w-11 h-11 rounded-xl border border-gray-300 flex items-center justify-center hover:bg-[#003300] hover:text-white hover:border-[#003300] transition-all duration-300"
+                  className="hover:text-green-400 transition duration-300"
                 >
-                  <FaFacebookF />
+                  Privacy Policy
                 </a>
+              </li>
 
+              <li>
                 <a
                   href="#"
-                  className="w-11 h-11 rounded-xl border border-gray-300 flex items-center justify-center hover:bg-[#003300] hover:text-white hover:border-[#003300] transition-all duration-300"
+                  className="hover:text-green-400 transition duration-300"
                 >
-                  <FaInstagram />
+                  Terms & Conditions
                 </a>
+              </li>
 
-                <a
-                  href="#"
-                  className="w-11 h-11 rounded-xl border border-gray-300 flex items-center justify-center hover:bg-[#003300] hover:text-white hover:border-[#003300] transition-all duration-300"
-                >
-                  <FaTwitter />
-                </a>
+            </ul>
 
+          </div>
+
+          {/* Contact */}
+
+          <div>
+
+            <h3 className="text-xl font-bold mb-6">
+              Contact Us
+            </h3>
+
+            <div className="space-y-5 text-gray-300">
+
+              <div className="flex items-center gap-3">
+                <FaMapMarkerAlt className="text-green-400" />
+                <span>Dhaka, Bangladesh</span>
               </div>
 
-              <p className="mt-6 text-gray-500">
-                support@green.com
-              </p>
+              <div className="flex items-center gap-3">
+                <FaPhoneAlt className="text-green-400" />
+                <span>+880 1234-567890</span>
+              </div>
+
+              <div className="flex items-center gap-3">
+                <FaEnvelope className="text-green-400" />
+                <span>support@green.com</span>
+              </div>
+
+            </div>
+
+            <div className="flex gap-4 mt-8">
+
+              <a
+                href="#"
+                className="w-11 h-11 rounded-full bg-white/10 hover:bg-green-500 transition-all duration-300 flex items-center justify-center"
+              >
+                <FaFacebookF />
+              </a>
+
+              <a
+                href="#"
+                className="w-11 h-11 rounded-full bg-white/10 hover:bg-green-500 transition-all duration-300 flex items-center justify-center"
+              >
+                <FaInstagram />
+              </a>
+
+              <a
+                href="#"
+                className="w-11 h-11 rounded-full bg-white/10 hover:bg-green-500 transition-all duration-300 flex items-center justify-center"
+              >
+                <FaTwitter />
+              </a>
 
             </div>
 
@@ -143,31 +207,17 @@ const Footer = () => {
 
       </div>
 
-      <div className="border-t border-gray-200">
+      <div className="border-t border-white/10">
 
-        <div className="max-w-7xl mx-auto px-6 py-6 flex flex-col md:flex-row justify-between items-center gap-3">
+        <div className="max-w-7xl mx-auto px-6 py-5 flex flex-col md:flex-row justify-between items-center">
 
-          <p className="text-gray-500 text-sm">
+          <p className="text-gray-400 text-sm">
             © 2026 Green Organic Store. All rights reserved.
           </p>
 
-          <div className="flex gap-8 text-sm">
-
-            <a
-              href="#"
-              className="text-gray-500 hover:text-[#003300]"
-            >
-              Privacy
-            </a>
-
-            <a
-              href="#"
-              className="text-gray-500 hover:text-[#003300]"
-            >
-              Terms
-            </a>
-
-          </div>
+          <p className="text-green-400 text-sm mt-3 md:mt-0">
+            🌱 Eat Fresh • Live Healthy • Shop Organic
+          </p>
 
         </div>
 
