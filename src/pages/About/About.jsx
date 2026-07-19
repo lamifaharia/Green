@@ -219,7 +219,7 @@ const About = () => {
           </h2>
 
           <p className="text-green-100 text-lg leading-8 mb-10">
-            Explore our collection of fresh organic fruits,
+            Explore our collection of fresh and green fruits,
             vegetables, dairy products, and groceries.
           </p>
 
