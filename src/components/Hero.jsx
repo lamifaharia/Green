@@ -86,21 +86,7 @@ const Hero = () => {
             className="rounded-[35px] shadow-2xl"
           />
 
-          <div className="absolute -bottom-6 left-0 rounded-3xl bg-white p-5 shadow-xl">
-            <h3 className="text-2xl font-bold text-[#003300]">
-              Fresh Daily
-            </h3>
-
-            <p className="text-gray-500">
-              Directly from local farms
-            </p>
-          </div>
-
-          <div className="absolute top-8 -right-5 rounded-3xl bg-white px-5 py-4 shadow-xl">
-            <p className="font-semibold">
-              🚚 Free Delivery
-            </p>
-          </div>
+          
         </motion.div>
       </div>
     </section>
