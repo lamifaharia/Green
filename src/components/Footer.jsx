@@ -11,26 +11,29 @@ import { Link } from "react-router-dom";
 
 const Footer = () => {
   return (
-    <footer className="mt-24 bg-[#0B1F16] text-white">
+    <footer className="bg-[#0B1F16] text-white mt-16">
 
-      <div className="max-w-7xl mx-auto px-6 py-16">
+      <div className="max-w-7xl mx-auto px-6 py-10">
 
-        <div className="grid lg:grid-cols-4 md:grid-cols-2 gap-12">
+        {/* Top */}
 
-          {/* Logo */}
-          <div>
+        <div className="flex flex-col lg:flex-row justify-between gap-10">
 
-            <div className="flex items-center gap-3 mb-5">
+          {/* Brand */}
 
-              <div className="w-14 h-14 rounded-2xl bg-gradient-to-br from-green-500 to-green-700 flex items-center justify-center shadow-lg">
+          <div className="max-w-sm">
 
-                <FaLeaf className="text-white text-2xl" />
+            <div className="flex items-center gap-3 mb-4">
+
+              <div className="w-12 h-12 rounded-xl bg-green-600 flex items-center justify-center">
+
+                <FaLeaf className="text-white text-xl" />
 
               </div>
 
               <div>
 
-                <h2 className="text-3xl font-black tracking-wide">
+                <h2 className="text-2xl font-bold">
                   Green
                 </h2>
 
@@ -42,164 +45,101 @@ const Footer = () => {
 
             </div>
 
-            <p className="text-gray-300 leading-7">
-              Fresh organic fruits, vegetables and healthy groceries
-              delivered directly from trusted farms to your doorstep.
+            <p className="text-gray-400 text-sm leading-7">
+              Fresh organic groceries delivered from trusted farms
+              directly to your doorstep.
             </p>
 
           </div>
 
-          {/* Quick Links */}
+          {/* Links */}
 
-          <div>
+          <div className="flex flex-wrap gap-8 text-sm font-medium">
 
-            <h3 className="text-xl font-bold mb-6">
-              Quick Links
-            </h3>
+            <Link to="/" className="hover:text-green-400">
+              Home
+            </Link>
 
-            <ul className="space-y-4 text-gray-300">
+            <Link to="/shop" className="hover:text-green-400">
+              Shop
+            </Link>
 
-              <li>
-                <Link
-                  to="/"
-                  className="hover:text-green-400 transition duration-300"
-                >
-                  Home
-                </Link>
-              </li>
+            <Link to="/about" className="hover:text-green-400">
+              About
+            </Link>
 
-              <li>
-                <Link
-                  to="/shop"
-                  className="hover:text-green-400 transition duration-300"
-                >
-                  Shop
-                </Link>
-              </li>
+            <Link to="/contact" className="hover:text-green-400">
+              Contact
+            </Link>
 
-              <li>
-                <Link
-                  to="/wishlist"
-                  className="hover:text-green-400 transition duration-300"
-                >
-                  Wishlist
-                </Link>
-              </li>
+            <Link to="/wishlist" className="hover:text-green-400">
+              Wishlist
+            </Link>
 
-              <li>
-                <Link
-                  to="/cart"
-                  className="hover:text-green-400 transition duration-300"
-                >
-                  Cart
-                </Link>
-              </li>
-
-            </ul>
+            <Link to="/cart" className="hover:text-green-400">
+              Cart
+            </Link>
 
           </div>
 
-          {/* Company */}
+        </div>
 
-          <div>
+        {/* Contact */}
 
-            <h3 className="text-xl font-bold mb-6">
-              Company
-            </h3>
+        <div className="flex flex-col lg:flex-row justify-between items-center gap-6 border-t border-white/10 mt-8 pt-8">
 
-            <ul className="space-y-4 text-gray-300">
+          <div className="flex flex-wrap justify-center lg:justify-start gap-6 text-sm text-gray-300">
 
-              <li>
-                <Link
-                  to="/about"
-                  className="hover:text-green-400 transition duration-300"
-                >
-                  About Us
-                </Link>
-              </li>
+            <div className="flex items-center gap-2">
 
-              <li>
-                <Link
-                  to="/contact"
-                  className="hover:text-green-400 transition duration-300"
-                >
-                  Contact
-                </Link>
-              </li>
+              <FaMapMarkerAlt className="text-green-400" />
 
-              <li>
-                <a
-                  href="#"
-                  className="hover:text-green-400 transition duration-300"
-                >
-                  Privacy Policy
-                </a>
-              </li>
+              Dhaka, Bangladesh
 
-              <li>
-                <a
-                  href="#"
-                  className="hover:text-green-400 transition duration-300"
-                >
-                  Terms & Conditions
-                </a>
-              </li>
+            </div>
 
-            </ul>
+            <div className="flex items-center gap-2">
+
+              <FaPhoneAlt className="text-green-400" />
+
+              +880 1234-567890
+
+            </div>
+
+            <div className="flex items-center gap-2">
+
+              <FaEnvelope className="text-green-400" />
+
+              support@green.com
+
+            </div>
 
           </div>
 
-          {/* Contact */}
+          {/* Social */}
 
-          <div>
+          <div className="flex gap-3">
 
-            <h3 className="text-xl font-bold mb-6">
-              Contact Us
-            </h3>
+            <a
+              href="#"
+              className="w-10 h-10 rounded-full bg-white/10 hover:bg-green-600 transition flex items-center justify-center"
+            >
+              <FaFacebookF />
+            </a>
 
-            <div className="space-y-5 text-gray-300">
+            <a
+              href="#"
+              className="w-10 h-10 rounded-full bg-white/10 hover:bg-green-600 transition flex items-center justify-center"
+            >
+              <FaInstagram />
+            </a>
 
-              <div className="flex items-center gap-3">
-                <FaMapMarkerAlt className="text-green-400" />
-                <span>Dhaka, Bangladesh</span>
-              </div>
-
-              <div className="flex items-center gap-3">
-                <FaPhoneAlt className="text-green-400" />
-                <span>+880 1234-567890</span>
-              </div>
-
-              <div className="flex items-center gap-3">
-                <FaEnvelope className="text-green-400" />
-                <span>support@green.com</span>
-              </div>
-
-            </div>
-
-            <div className="flex gap-4 mt-8">
-
-              <a
-                href="#"
-                className="w-11 h-11 rounded-full bg-white/10 hover:bg-green-500 transition-all duration-300 flex items-center justify-center"
-              >
-                <FaFacebookF />
-              </a>
-
-              <a
-                href="#"
-                className="w-11 h-11 rounded-full bg-white/10 hover:bg-green-500 transition-all duration-300 flex items-center justify-center"
-              >
-                <FaInstagram />
-              </a>
-
-              <a
-                href="#"
-                className="w-11 h-11 rounded-full bg-white/10 hover:bg-green-500 transition-all duration-300 flex items-center justify-center"
-              >
-                <FaTwitter />
-              </a>
-
-            </div>
+            <a
+              href="#"
+              className="w-10 h-10 rounded-full bg-white/10 hover:bg-green-600 transition flex items-center justify-center"
+            >
+              <FaTwitter />
+            </a>
 
           </div>
 
@@ -207,16 +147,18 @@ const Footer = () => {
 
       </div>
 
+      {/* Bottom */}
+
       <div className="border-t border-white/10">
 
-        <div className="max-w-7xl mx-auto px-6 py-5 flex flex-col md:flex-row justify-between items-center">
+        <div className="max-w-7xl mx-auto px-6 py-4 flex flex-col md:flex-row justify-between items-center text-sm text-gray-400">
 
-          <p className="text-gray-400 text-sm">
+          <p>
             © 2026 Green Organic Store. All rights reserved.
           </p>
 
-          <p className="text-green-400 text-sm mt-3 md:mt-0">
-            🌱 Eat Fresh • Live Healthy • Shop Organic
+          <p className="text-green-400 mt-2 md:mt-0">
+            🌿 Eat Fresh • Live Healthy
           </p>
 
         </div>
